@@ -3,6 +3,9 @@ import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
+
+// http://localhost:3000
+
 const Page = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),
