@@ -1,6 +1,6 @@
 "use client";
 
-import { email, set, z } from "zod";
+import { z } from "zod";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -28,7 +28,7 @@ import { authClient } from "@/lib/auth-client";
 
 const formSchema = z.object({
     name: z.string().min(1, {message: "Name is required"}),
-    email: z.email(),
+    email: z.string().email(),
     password: z.string().min(1, "Password is required."),
     confirmPassword: z.string().min(1, "Confirm Password is required."),
 })

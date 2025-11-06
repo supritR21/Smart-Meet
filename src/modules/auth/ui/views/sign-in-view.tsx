@@ -1,6 +1,6 @@
 "use client";
 
-import { email, set, z } from "zod";
+import { z } from "zod";
 import Link from "next/link";
 
 import { useState } from "react";
@@ -28,7 +28,7 @@ import { fr, ro, se } from "date-fns/locale";
 import { authClient } from "@/lib/auth-client";
 
 const formSchema = z.object({
-    email: z.email(),
+    email: z.string().email(),
     password: z.string().min(1, "Password is required."),
 });
 
@@ -67,11 +67,11 @@ export const SignInView = () => {
         );
     };
 
-    const onSocial = (provider: "github" | "google") => {
+    const onSocial = async(provider: "github" | "google") => {
         setError(null);
         setPending(true);
 
-        authClient.signIn.social(
+        await authClient.signIn.social(
         {
             provider,
             callbackURL: "/",
