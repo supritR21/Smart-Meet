@@ -22,8 +22,8 @@ export const CallActive = ({onLeave, meetingName} : Props) => {
                 </h4>
             </div>
             <SpeakerLayout />
-            <div>
-                <CallControls />
+            <div className="bg-[#101213] rounded-full px-4">
+                <CallControls onLeave={onLeave} />
             </div>
         </div>
     )
