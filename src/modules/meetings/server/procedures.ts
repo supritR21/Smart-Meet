@@ -2,7 +2,7 @@ import {z} from "zod";
 import { db } from "@/db";
 import {inArray} from "drizzle-orm";
 import {agents, meetings, user} from "@/db/schema";
-import {createTRPCRouter, protectedProcedure} from "@/trpc/init";
+import {createTRPCRouter, premiumProcedure, protectedProcedure} from "@/trpc/init";
 
 import {and, desc, eq, getTableColumns, ilike, sql, count} from "drizzle-orm";
 import { Search } from "lucide-react";
@@ -180,7 +180,7 @@ export const meetingsRouter = createTRPCRouter({
             }
             return updatedMeeting;
            }),
-    create: protectedProcedure
+    create: premiumProcedure("meetings")
             .input(meetingsInsertSchema)
             .mutation(async ({input, ctx}) => {
                 const [createdMeeting] = await db

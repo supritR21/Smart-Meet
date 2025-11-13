@@ -24,6 +24,7 @@ import { VideoIcon, BotIcon, StarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import { Separator } from "@radix-ui/react-context-menu";
+import { DashboardTrial } from "./dashboard-trial";
 
 const firstSection = [
     {
@@ -116,6 +117,7 @@ export const DashboardSidebar = () => {
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter className="text-white">
+                <DashboardTrial />
                 <DashboardUserButton />
             </SidebarFooter>
         </Sidebar>
