@@ -19,9 +19,12 @@ export const Transcript = ({meetingId}: Props) => {
     const {data} = useQuery(trpc.meetings.getTranscript.queryOptions({id: meetingId}))
 
     const [searchQuery, setSearchQuery] = useState("");
-    const filteredData = (data??[]).filter((item) => {
-        item.text.toString().toLowerCase().includes(searchQuery.toLowerCase())
-    });
+    const filteredData = (data ?? []).filter((item) =>
+        String(item.text).toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    // Safety: if no data yet, show an empty array (avoid rendering undefined)
+    // The caller/view can show a loading state if desired.
 
     return (
         <div className="bg-white rounded-lg border px-4 py-5 flex flex-col gap-y-4 w-full">
@@ -71,5 +74,5 @@ export const Transcript = ({meetingId}: Props) => {
                 </div>
             </ScrollArea>
         </div>
-    )
+    ) 
 };
