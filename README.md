@@ -4,6 +4,9 @@
 
 Smart Meet is an AI-powered meeting platform that records, transcribes, and summarizes your meetings in real-time. Leverage intelligent AI agents to triage action items, generate highlights, and extract meaningful insights from every conversation.
 
+![alt text](image.png)
+![alt text](image-1.png)
+
 ---
 
 ## ✨ Features
@@ -248,7 +251,7 @@ This project is private and proprietary. All rights reserved.
 
 ## 👥 Support
 
-For support, email supritraj21@example.com or open an issue in the GitHub repository.
+For support, email supritraj30@gmail.com or open an issue in the GitHub repository.
 
 ---
 
